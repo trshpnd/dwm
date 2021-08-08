@@ -17,8 +17,8 @@ static const int showsystray             = 1;   /* 0 means no systray */
 static int tagindicatortype              = INDICATOR_TOP_BAR;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
-static const char *fonts[]               = {"Noto Sans:style=Regular:size=10", "Font Awesome 5 Free:style=Solid:pixelsize=10:antialias=true", "Font Awesome 5 Brands:style=Solid:pixelsize=10:antialias=true"};
-static const char dmenufont[]            = "Noto Sans:size=10";
+static const char *fonts[]               = {"Source Code Pro:style=Regular:size=10", "Font Awesome 5 Free:style=Solid:pixelsize=10:antialias=true", "Font Awesome 5 Brands:style=Solid:pixelsize=10:antialias=true"};
+static const char dmenufont[]            = "Source Code Pro:size=10";
 
 static char c000000[]                    = "#000000"; // placeholder value
 
@@ -92,7 +92,7 @@ static char *statuscolors[][ColCount] = {
 
 //"sh", "/home/trshpnd/dwm-status/statusbar.sh", NULL,
 static const char *const autostart[] = {
-	"feh", "--no-fehbg", "--bg-fill", "/home/trshpnd/Imagens/wallhaven-nzyrqo.png", NULL,
+	"sh", "/home/trshpnd/.fehbg", NULL,
 	"dwmblocks", NULL,
 	"picom", "--experimental-backends", NULL,
 	"volumeicon", NULL,
@@ -131,7 +131,7 @@ static const char *const autostart[] = {
 
  /*Minhas Tags*/
 static char *tagicons[][NUMTAGS] = {
-	[DEFAULT_TAGS]        = { "₁ ", "₂ ", "₃ ", "₄ ", "₅ ", "₆ ", "₇ ", "₈ ", "₉ "},
+	[DEFAULT_TAGS]        = { "₁", "₂", "₃", "₄", "₅", "₆", "₇", "₈", "₉"},
 	[ALTERNATIVE_TAGS]    = { "A", "B", "C", "D", "E", "F", "G", "H", "I" },
 	[ALT_TAGS_DECORATION] = { "<1>", "<2>", "<3>", "<4>", "<5>", "<6>", "<7>", "<8>", "<9>" },
 };
