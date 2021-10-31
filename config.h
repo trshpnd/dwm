@@ -238,7 +238,7 @@ static const char *dmenucmd[] = {
 	"-l", "4",
 	NULL
 };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "st", NULL };
 
 // Controle de volume (áudio)
 static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%", NULL };

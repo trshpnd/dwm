@@ -1,64 +1,64 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx       = 1;   /* border pixel of windows */
+static const unsigned int borderpx       = 0;   /* border pixel of windows */
 static const unsigned int snap           = 32;  /* snap pixel */
-static const unsigned int gappih         = 20;  /* horiz inner gap between windows */
-static const unsigned int gappiv         = 10;  /* vert inner gap between windows */
-static const unsigned int gappoh         = 10;  /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov         = 30;  /* vert outer gap between windows and screen edge */
+static const unsigned int gappih         = 11;  /* horiz inner gap between windows */
+static const unsigned int gappiv         = 13;  /* vert inner gap between windows */
+static const unsigned int gappoh         = 12;  /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov         = 12;  /* vert outer gap between windows and screen edge */
 static const int smartgaps_fact          = 1;   /* gap factor when there is only one client; 0 = no gaps, 3 = 3x outer gaps */
 static const int showbar                 = 1;   /* 0 means no bar */
 static const int topbar                  = 1;   /* 0 means bottom bar */
 static const int focusonwheel            = 0;
-static const unsigned int systrayspacing = 2;   /* systray spacing */
+static const unsigned int systrayspacing = 10;   /* systray spacing */
 static const int showsystray             = 1;   /* 0 means no systray */
 /* Indicators: see patch/bar_indicators.h for options */
-static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
+static int tagindicatortype              = INDICATOR_TOP_BAR;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
-static const char *fonts[]               = { "monospace:size=10" };
-static const char dmenufont[]            = "monospace:size=10";
+static const char *fonts[]               = {"Source Code Pro:style=Regular:size=10", "Font Awesome 5 Free:style=Solid:pixelsize=10:antialias=true", "Font Awesome 5 Brands:style=Solid:pixelsize=10:antialias=true"};
+static const char dmenufont[]            = "Source Code Pro:size=10";
 
 static char c000000[]                    = "#000000"; // placeholder value
 
-static char normfgcolor[]                = "#bbbbbb";
-static char normbgcolor[]                = "#222222";
+static char normfgcolor[]                = "#ebdbb2";//x01
+static char normbgcolor[]                = "#282828";
 static char normbordercolor[]            = "#444444";
 static char normfloatcolor[]             = "#db8fd9";
 
-static char selfgcolor[]                 = "#eeeeee";
-static char selbgcolor[]                 = "#005577";
-static char selbordercolor[]             = "#005577";
-static char selfloatcolor[]              = "#005577";
+static char selfgcolor[]                 = "#fbf1c7";//x02
+static char selbgcolor[]                 = "#665c54";
+static char selbordercolor[]             = "#665c54";
+static char selfloatcolor[]              = "#665c54";
 
-static char titlenormfgcolor[]           = "#bbbbbb";
-static char titlenormbgcolor[]           = "#222222";
+static char titlenormfgcolor[]           = "#ebdbb2";//x03
+static char titlenormbgcolor[]           = "#282828";
 static char titlenormbordercolor[]       = "#444444";
 static char titlenormfloatcolor[]        = "#db8fd9";
 
-static char titleselfgcolor[]            = "#eeeeee";
-static char titleselbgcolor[]            = "#005577";
-static char titleselbordercolor[]        = "#005577";
-static char titleselfloatcolor[]         = "#005577";
+static char titleselfgcolor[]            = "#fbf1c7";//x04
+static char titleselbgcolor[]            = "#282828";
+static char titleselbordercolor[]        = "#665c54"; 
+static char titleselfloatcolor[]         = "#222222";
 
-static char tagsnormfgcolor[]            = "#bbbbbb";
-static char tagsnormbgcolor[]            = "#222222";
-static char tagsnormbordercolor[]        = "#444444";
+static char tagsnormfgcolor[]            = "#ebdbb2";//x05
+static char tagsnormbgcolor[]            = "#3c3836";
+static char tagsnormbordercolor[]        = "#3c3836";
 static char tagsnormfloatcolor[]         = "#db8fd9";
 
-static char tagsselfgcolor[]             = "#eeeeee";
-static char tagsselbgcolor[]             = "#005577";
-static char tagsselbordercolor[]         = "#005577";
-static char tagsselfloatcolor[]          = "#005577";
+static char tagsselfgcolor[]             = "#fbf1c7";//x06
+static char tagsselbgcolor[]             = "#665c54";
+static char tagsselbordercolor[]         = "#665c54";
+static char tagsselfloatcolor[]          = "#665c54";
 
-static char hidnormfgcolor[]             = "#005577";
-static char hidselfgcolor[]              = "#227799";
-static char hidnormbgcolor[]             = "#222222";
-static char hidselbgcolor[]              = "#222222";
+static char hidnormfgcolor[]             = "#eeeeee";//x07
+static char hidselfgcolor[]              = "#504945";
+static char hidnormbgcolor[]             = "#504945";
+static char hidselbgcolor[]              = "#282828";
 
-static char urgfgcolor[]                 = "#bbbbbb";
-static char urgbgcolor[]                 = "#222222";
+static char urgfgcolor[]                 = "#bbbbbb";//x08
+static char urgbgcolor[]                 = "#282828";
 static char urgbordercolor[]             = "#ff0000";
 static char urgfloatcolor[]              = "#db8fd9";
 
@@ -79,20 +79,24 @@ static char *colors[][ColCount] = {
 
 static char *statuscolors[][ColCount] = {
 	/*                       fg                bg                border                float */
-	[SchemeNorm]         = { normfgcolor,      normbgcolor,      normbordercolor,      normfloatcolor },
-	[SchemeSel]          = { selfgcolor,       selbgcolor,       selbordercolor,       selfloatcolor },
-	[SchemeTitleNorm]    = { titlenormfgcolor, titlenormbgcolor, titlenormbordercolor, titlenormfloatcolor },
-	[SchemeTitleSel]     = { titleselfgcolor,  titleselbgcolor,  titleselbordercolor,  titleselfloatcolor },
-	[SchemeTagsNorm]     = { tagsnormfgcolor,  tagsnormbgcolor,  tagsnormbordercolor,  tagsnormfloatcolor },
-	[SchemeTagsSel]      = { tagsselfgcolor,   tagsselbgcolor,   tagsselbordercolor,   tagsselfloatcolor },
-	[SchemeHidNorm]      = { hidnormfgcolor,   hidnormbgcolor,   c000000,              c000000 },
+	[SchemeNorm]         = { normfgcolor,      normbgcolor,      normbordercolor,      normfloatcolor }, 		//x01
+	[SchemeSel]          = { selfgcolor,       selbgcolor,       selbordercolor,       selfloatcolor },  		//x02
+	[SchemeTitleNorm]    = { titlenormfgcolor, titlenormbgcolor, titlenormbordercolor, titlenormfloatcolor }, 	//x03 (...)
+	[SchemeTitleSel]     = { titleselfgcolor,  titleselbgcolor,  titleselbordercolor,  titleselfloatcolor },	//x04
+	[SchemeTagsNorm]     = { tagsnormfgcolor,  tagsnormbgcolor,  tagsnormbordercolor,  tagsnormfloatcolor },	//x05
+	[SchemeTagsSel]      = { tagsselfgcolor,   tagsselbgcolor,   tagsselbordercolor,   tagsselfloatcolor },		//x06
+	[SchemeHidNorm]      = { hidnormfgcolor,   hidnormbgcolor,   c000000,              c000000 },				//x07
 	[SchemeHidSel]       = { hidselfgcolor,    hidselbgcolor,    c000000,              c000000 },
 	[SchemeUrg]          = { urgfgcolor,       urgbgcolor,       urgbordercolor,       urgfloatcolor },
 };
 
-
+//"sh", "/home/trshpnd/dwm-status/statusbar.sh", NULL,
 static const char *const autostart[] = {
-	"st", NULL,
+	"sh", "/home/trshpnd/.fehbg", NULL,
+	"dwmblocks", NULL,
+	"picom", "--experimental-backends", NULL,
+	"volumeicon", NULL,
+	"nm-applet", NULL,
 	NULL /* terminate */
 };
 
@@ -124,8 +128,10 @@ static const char *const autostart[] = {
  * until it an icon matches. Similarly if there are two tag icons then it would alternate between
  * them. This works seamlessly with alternative tags and alttagsdecoration patches.
  */
+
+ /*Minhas Tags*/
 static char *tagicons[][NUMTAGS] = {
-	[DEFAULT_TAGS]        = { "1", "2", "3", "4", "5", "6", "7", "8", "9" },
+	[DEFAULT_TAGS]        = { "₁", "₂", "₃", "₄", "₅", "₆", "₇", "₈", "₉"},
 	[ALTERNATIVE_TAGS]    = { "A", "B", "C", "D", "E", "F", "G", "H", "I" },
 	[ALT_TAGS_DECORATION] = { "<1>", "<2>", "<3>", "<4>", "<5>", "<6>", "<7>", "<8>", "<9>" },
 };
@@ -160,8 +166,8 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "UTILITY", .isfloating = 1)
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
-	RULE(.class = "Gimp", .tags = 1 << 4)
-	RULE(.class = "Firefox", .tags = 1 << 7)
+	//RULE(.class = "Gimp", .tags = 1 << 4)
+	//RULE(.class = "Firefox", .tags = 1 << 7)
 };
 
 
@@ -188,7 +194,7 @@ static const BarRule barrules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.5; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
@@ -196,15 +202,17 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "",      tile },    /* first entry is default */
+	{ "",      NULL },    /* no layout function means floating behavior */
+	{ "",      monocle },
 	{ NULL,       NULL },
 };
 
 
 /* key definitions */
 #define MODKEY Mod1Mask
+#define MODKEY_4 Mod4Mask //MUDEI
+
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -217,25 +225,43 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
+
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = {
-	"dmenu_run",
+	"dmenu_run_history",
 	"-m", dmenumon,
 	"-fn", dmenufont,
 	"-nb", normbgcolor,
 	"-nf", normfgcolor,
 	"-sb", selbgcolor,
 	"-sf", selfgcolor,
+	"-l", "4",
 	NULL
 };
 static const char *termcmd[]  = { "st", NULL };
 
-
+// Controle de volume (áudio)
+static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%", NULL };
+static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%", NULL };
+static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle", NULL };
 
 static Key keys[] = {
 	/* modifier                     key            function                argument */
-	{ MODKEY,                       XK_p,          spawn,                  {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return,     spawn,                  {.v = termcmd } },
+	/* Apps */
+	{ MODKEY_4,                     XK_space,      spawn,                  {.v = dmenucmd } },
+	{ MODKEY_4,                     XK_Return,     spawn,                  {.v = termcmd } },
+	{ MODKEY_4,                     XK_b,          spawn,                  SHCMD("brave") },
+	{ MODKEY_4,                     XK_s,          spawn,                  SHCMD("com.valvesoftware.Steam -no-browser +open steam://open/minigameslist") },
+	{ MODKEY_4,                     XK_v,          spawn,                  SHCMD("vscodium") },
+	{ MODKEY_4|ShiftMask,           XK_s,          spawn,                  SHCMD("flameshot gui") },
+	{ MODKEY|ControlMask,           XK_Escape,     spawn,                  SHCMD("xkill") },
+	/* Audio controller */
+	{ 0,                     	XF86XK_AudioLowerVolume, 	spawn, 			{.v = downvol } 		},
+	{ 0,                       	XF86XK_AudioMute, 		spawn, 			{.v = mutevol } 		},
+	{ 0,                       	XF86XK_AudioRaiseVolume, 	spawn, 			{.v = upvol   } 		},
+	//{ 0,                            XF86XK_AudioLowerVolume,        spawn, 		SHCMD("pkill -RTMIN+10 dwmblocks")},
+	//{ 0,                            XF86XK_AudioMute,               spawn, 		SHCMD("pkill -RTMIN+10 dwmblocks")},
+	//{ 0,                            XF86XK_AudioRaiseVolume,        spawn, 		SHCMD("pkill -RTMIN+10 dwmblocks")},
 	{ MODKEY,                       XK_b,          togglebar,              {0} },
 	{ MODKEY,                       XK_j,          focusstack,             {.i = +1 } },
 	{ MODKEY,                       XK_k,          focusstack,             {.i = -1 } },
@@ -265,8 +291,8 @@ static Key keys[] = {
 	{ MODKEY|Mod4Mask,              XK_0,          togglegaps,             {0} },
 	{ MODKEY|Mod4Mask|ShiftMask,    XK_0,          defaultgaps,            {0} },
 	{ MODKEY,                       XK_Tab,        view,                   {0} },
-	{ MODKEY|ShiftMask,             XK_c,          killclient,             {0} },
-	{ MODKEY|ShiftMask,             XK_q,          quit,                   {0} },
+	{ MODKEY,                     	XK_c,          killclient,             {0} }, //MUDEI
+	{ MODKEY|ControlMask,           XK_q,          quit,                   {0} }, //QUIT/LOGOUT
 	{ MODKEY,                       XK_t,          setlayout,              {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,          setlayout,              {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,          setlayout,              {.v = &layouts[2]} },
@@ -292,7 +318,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                                  8)
 };
 
-
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
@@ -309,6 +334,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,              Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,              Button3,        toggletag,      {0} },
 };
-
-
-
