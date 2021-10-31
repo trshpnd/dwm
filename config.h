@@ -22,43 +22,43 @@ static const char dmenufont[]            = "Source Code Pro:size=10";
 
 static char c000000[]                    = "#000000"; // placeholder value
 
-static char normfgcolor[]                = "#bbbbbb";//x01
-static char normbgcolor[]                = "#222222";
+static char normfgcolor[]                = "#ebdbb2";//x01
+static char normbgcolor[]                = "#282828";
 static char normbordercolor[]            = "#444444";
 static char normfloatcolor[]             = "#db8fd9";
 
-static char selfgcolor[]                 = "#eeeeee";//x02
-static char selbgcolor[]                 = "#7914d9";
-static char selbordercolor[]             = "#7914d9";
-static char selfloatcolor[]              = "#7914d9";
+static char selfgcolor[]                 = "#fbf1c7";//x02
+static char selbgcolor[]                 = "#665c54";
+static char selbordercolor[]             = "#665c54";
+static char selfloatcolor[]              = "#665c54";
 
-static char titlenormfgcolor[]           = "#bbbbbb";//x03
-static char titlenormbgcolor[]           = "#222222";
+static char titlenormfgcolor[]           = "#ebdbb2";//x03
+static char titlenormbgcolor[]           = "#282828";
 static char titlenormbordercolor[]       = "#444444";
 static char titlenormfloatcolor[]        = "#db8fd9";
 
-static char titleselfgcolor[]            = "#eeeeee";//x04
-static char titleselbgcolor[]            = "#222222";
-static char titleselbordercolor[]        = "#7914d9"; 
+static char titleselfgcolor[]            = "#fbf1c7";//x04
+static char titleselbgcolor[]            = "#282828";
+static char titleselbordercolor[]        = "#665c54"; 
 static char titleselfloatcolor[]         = "#222222";
 
-static char tagsnormfgcolor[]            = "#eeeeee";//x05
-static char tagsnormbgcolor[]            = "#311d45";
-static char tagsnormbordercolor[]        = "#311d45";
+static char tagsnormfgcolor[]            = "#ebdbb2";//x05
+static char tagsnormbgcolor[]            = "#3c3836";
+static char tagsnormbordercolor[]        = "#3c3836";
 static char tagsnormfloatcolor[]         = "#db8fd9";
 
-static char tagsselfgcolor[]             = "#eeeeee";//x06
-static char tagsselbgcolor[]             = "#7914d9";
-static char tagsselbordercolor[]         = "#7914d9";
-static char tagsselfloatcolor[]          = "#7914d9";
+static char tagsselfgcolor[]             = "#fbf1c7";//x06
+static char tagsselbgcolor[]             = "#665c54";
+static char tagsselbordercolor[]         = "#665c54";
+static char tagsselfloatcolor[]          = "#665c54";
 
 static char hidnormfgcolor[]             = "#eeeeee";//x07
-static char hidselfgcolor[]              = "#3c2a6b";
-static char hidnormbgcolor[]             = "#3c2a6b";
-static char hidselbgcolor[]              = "#222222";
+static char hidselfgcolor[]              = "#504945";
+static char hidnormbgcolor[]             = "#504945";
+static char hidselbgcolor[]              = "#282828";
 
 static char urgfgcolor[]                 = "#bbbbbb";//x08
-static char urgbgcolor[]                 = "#222222";
+static char urgbgcolor[]                 = "#282828";
 static char urgbordercolor[]             = "#ff0000";
 static char urgfloatcolor[]              = "#db8fd9";
 
@@ -166,8 +166,8 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "UTILITY", .isfloating = 1)
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
-	RULE(.class = "Gimp", .tags = 1 << 4)
-	RULE(.class = "Firefox", .tags = 1 << 7)
+	//RULE(.class = "Gimp", .tags = 1 << 4)
+	//RULE(.class = "Firefox", .tags = 1 << 7)
 };
 
 
@@ -225,20 +225,20 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
+
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = {
-	"dmenu_run",
+	"dmenu_run_history",
 	"-m", dmenumon,
 	"-fn", dmenufont,
 	"-nb", normbgcolor,
 	"-nf", normfgcolor,
 	"-sb", selbgcolor,
 	"-sf", selfgcolor,
+	"-l", "4",
 	NULL
 };
 static const char *termcmd[]  = { "alacritty", NULL };
-
-
 
 // Controle de volume (áudio)
 static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%", NULL };
@@ -318,7 +318,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                                  8)
 };
 
-
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
@@ -335,6 +334,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,              Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,              Button3,        toggletag,      {0} },
 };
-
-
-
