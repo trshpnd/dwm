@@ -52,7 +52,7 @@ static char tagsselbgcolor[]             = "#665c54";
 static char tagsselbordercolor[]         = "#665c54";
 static char tagsselfloatcolor[]          = "#665c54";
 
-static char hidnormfgcolor[]             = "#eeeeee";//x07
+static char hidnormfgcolor[]             = "#ebdbb2";//x07
 static char hidselfgcolor[]              = "#504945";
 static char hidnormbgcolor[]             = "#504945";
 static char hidselbgcolor[]              = "#282828";
@@ -131,7 +131,8 @@ static const char *const autostart[] = {
 
  /*Minhas Tags*/
 static char *tagicons[][NUMTAGS] = {
-	[DEFAULT_TAGS]        = { "₁", "₂", "₃", "₄", "₅", "₆", "₇", "₈", "₉"},
+	//[DEFAULT_TAGS]        = { "₁", "₂", "₃", "₄", "₅", "₆", "₇", "₈", "₉"},
+	[DEFAULT_TAGS]        = { "", "", "", "", "", "", "", "", ""},
 	[ALTERNATIVE_TAGS]    = { "A", "B", "C", "D", "E", "F", "G", "H", "I" },
 	[ALT_TAGS_DECORATION] = { "<1>", "<2>", "<3>", "<4>", "<5>", "<6>", "<7>", "<8>", "<9>" },
 };
@@ -251,8 +252,8 @@ static Key keys[] = {
 	{ MODKEY_4,                     XK_space,      spawn,                  {.v = dmenucmd } },
 	{ MODKEY_4,                     XK_Return,     spawn,                  {.v = termcmd } },
 	{ MODKEY_4,                     XK_b,          spawn,                  SHCMD("brave") },
-	{ MODKEY_4,                     XK_s,          spawn,                  SHCMD("com.valvesoftware.Steam -no-browser +open steam://open/minigameslist") },
-	{ MODKEY_4,                     XK_v,          spawn,                  SHCMD("vscodium") },
+	{ MODKEY_4,                     XK_f,          spawn,                  SHCMD("pcmanfm") },
+	{ MODKEY_4,                     XK_n,          spawn,                  SHCMD("nvim") },
 	{ MODKEY_4|ShiftMask,           XK_s,          spawn,                  SHCMD("flameshot gui") },
 	{ MODKEY|ControlMask,           XK_Escape,     spawn,                  SHCMD("xkill") },
 	/* Audio controller */
