@@ -17,7 +17,7 @@ static const int showsystray             = 1;   /* 0 means no systray */
 static int tagindicatortype              = INDICATOR_TOP_BAR;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
-static const char *fonts[]               = {"Source Code Pro:style=Regular:size=10", "Font Awesome 5 Free:style=Solid:pixelsize=10:antialias=true", "Font Awesome 5 Brands:style=Solid:pixelsize=10:antialias=true"};
+static const char *fonts[]               = {"Source Code Pro:style=Regular:size=10", "Font Awesome 5 Free:style=Solid:pixelsize=8:antialias=true", "Font Awesome 5 Brands:style=Solid:pixelsize=8:antialias=true"};
 static const char dmenufont[]            = "Source Code Pro:size=10";
 
 static char c000000[]                    = "#000000"; // placeholder value
